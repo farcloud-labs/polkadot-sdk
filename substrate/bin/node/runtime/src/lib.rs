@@ -818,6 +818,19 @@ impl pallet_election_provider_multi_phase::BenchmarkingConfig for ElectionProvid
 	const MAXIMUM_TARGETS: u32 = 300;
 }
 
+use pallet_smt;
+use smt_primitives;
+
+
+impl pallet_smt::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = ();
+	type SMTKey = smt_primitives::kv::SMTKey;
+	type SMTValue = smt_primitives::kv::SMTValue;
+	// type SMTHasher = smt_primitives::kv::SMTValue;
+	type SMTHasher = smt_primitives::keccak_hasher::Keccak256Hasher;
+}
+
 /// Maximum number of iterations for balancing that will be executed in the embedded OCW
 /// miner of election provider multi phase.
 pub const MINER_MAX_ITERATIONS: u32 = 10;
@@ -2629,6 +2642,9 @@ mod runtime {
 
 	#[runtime::pallet_index(81)]
 	pub type VerifySignature = pallet_verify_signature::Pallet<Runtime>;
+
+	#[runtime::pallet_index(90)]
+	pub type SMT = pallet_smt::Pallet<Runtime>;
 }
 
 impl TryFrom<RuntimeCall> for pallet_revive::Call<Runtime> {

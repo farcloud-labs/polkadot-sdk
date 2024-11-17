@@ -1,0 +1,3 @@
+[submodule "subsmt"]
+	path = subsmt
+	url = https://github.com/farcloud-labs/subsmt.git

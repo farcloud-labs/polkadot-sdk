@@ -9,6 +9,9 @@ repository = "https://github.com/paritytech/polkadot-sdk.git"
 resolver = "2"
 
 members = [
+	"subsmt/primitives",
+	# "subsmt/backend",
+	"subsmt/pallet/SMT",
 	"bridges/bin/runtime-common",
 	"bridges/chains/chain-asset-hub-rococo",
 	"bridges/chains/chain-asset-hub-westend",
@@ -1389,6 +1392,11 @@ xcm-simulator = { path = "polkadot/xcm/xcm-simulator", default-features = false 
 zeroize = { version = "1.7.0", default-features = false }
 zombienet-sdk = { version = "0.2.15" }
 zstd = { version = "0.12.4", default-features = false }
+
+
+# local
+ smt-primitives = {path = "subsmt/primitives",  default-features = false}
+ pallet-smt = { path = "subsmt/pallet/SMT", default-features = false}
 
 [profile.release]
 # Polkadot runtime requires unwinding.
