@@ -6529,6 +6529,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "dotenv"
+version = "0.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "77c90badedccf4105eca100756a0b1289e191f6fcbdadd3cee1d2f614f97da8f"
+
+[[package]]
 name = "downcast"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -11455,20 +11461,6 @@ name = "minimal-lexical"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
-
-[[package]]
-name = "minimal-template-node"
-version = "0.0.0"
-dependencies = [
- "clap 4.5.13",
- "docify",
- "futures",
- "futures-timer",
- "jsonrpsee",
- "minimal-template-runtime",
- "polkadot-sdk 0.1.0",
- "serde_json",
-]
 
 [[package]]
 name = "minimal-template-runtime"
@@ -17015,25 +17007,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "parachain-template-node"
-version = "0.0.0"
-dependencies = [
- "clap 4.5.13",
- "color-print",
- "docify",
- "futures",
- "jsonrpsee",
- "log",
- "parachain-template-runtime",
- "parity-scale-codec",
- "polkadot-sdk 0.1.0",
- "sc-tracing",
- "serde",
- "serde_json",
- "substrate-prometheus-endpoint",
-]
-
-[[package]]
 name = "parachain-template-runtime"
 version = "0.0.0"
 dependencies = [
@@ -20538,38 +20511,6 @@ dependencies = [
  "sp-state-machine 0.35.0",
  "sp-timestamp 26.0.0",
  "substrate-test-client",
-]
-
-[[package]]
-name = "polkadot-test-malus"
-version = "1.0.0"
-dependencies = [
- "assert_matches",
- "async-trait",
- "clap 4.5.13",
- "color-eyre",
- "futures",
- "futures-timer",
- "polkadot-cli",
- "polkadot-erasure-coding",
- "polkadot-node-core-backing",
- "polkadot-node-core-candidate-validation",
- "polkadot-node-core-dispute-coordinator",
- "polkadot-node-core-pvf-common",
- "polkadot-node-core-pvf-execute-worker",
- "polkadot-node-core-pvf-prepare-worker",
- "polkadot-node-network-protocol",
- "polkadot-node-primitives",
- "polkadot-node-subsystem",
- "polkadot-node-subsystem-test-helpers",
- "polkadot-node-subsystem-types",
- "polkadot-node-subsystem-util",
- "polkadot-primitives 7.0.0",
- "rand 0.8.5",
- "sp-core 28.0.0",
- "sp-keystore 0.34.0",
- "substrate-build-script-utils",
- "tracing-gum",
 ]
 
 [[package]]
@@ -25962,6 +25903,7 @@ name = "smt-backend"
 version = "0.1.0"
 dependencies = [
  "actix-web",
+ "dotenv",
  "ethers",
  "flexi_logger",
  "hex",
@@ -26704,49 +26646,6 @@ dependencies = [
  "phf",
  "thiserror 1.0.65",
  "unicode-xid 0.2.4",
-]
-
-[[package]]
-name = "solochain-template-node"
-version = "0.0.0"
-dependencies = [
- "clap 4.5.13",
- "frame-benchmarking-cli",
- "frame-metadata-hash-extension 0.1.0",
- "frame-system 28.0.0",
- "futures",
- "jsonrpsee",
- "pallet-transaction-payment 28.0.0",
- "pallet-transaction-payment-rpc",
- "sc-basic-authorship",
- "sc-cli",
- "sc-client-api",
- "sc-consensus",
- "sc-consensus-aura",
- "sc-consensus-grandpa",
- "sc-executor 0.32.0",
- "sc-network",
- "sc-offchain",
- "sc-service",
- "sc-telemetry",
- "sc-transaction-pool",
- "sc-transaction-pool-api",
- "serde_json",
- "solochain-template-runtime",
- "sp-api 26.0.0",
- "sp-block-builder 26.0.0",
- "sp-blockchain",
- "sp-consensus-aura 0.32.0",
- "sp-consensus-grandpa 13.0.0",
- "sp-core 28.0.0",
- "sp-genesis-builder 0.8.0",
- "sp-inherents 26.0.0",
- "sp-io 30.0.0",
- "sp-keyring 31.0.0",
- "sp-runtime 31.0.1",
- "sp-timestamp 26.0.0",
- "substrate-build-script-utils",
- "substrate-frame-rpc-system",
 ]
 
 [[package]]
@@ -30529,17 +30428,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "template-zombienet-tests"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "env_logger 0.11.3",
- "log",
- "tokio",
- "zombienet-sdk",
-]
-
-[[package]]
 name = "term"
 version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -33504,22 +33392,6 @@ dependencies = [
  "memchr",
  "thiserror 1.0.65",
  "zopfli",
-]
-
-[[package]]
-name = "zombienet-backchannel"
-version = "1.0.0"
-dependencies = [
- "futures-util",
- "parity-scale-codec",
- "reqwest 0.11.20",
- "serde",
- "serde_json",
- "thiserror 1.0.65",
- "tokio",
- "tokio-tungstenite",
- "tracing-gum",
- "url",
 ]
 
 [[package]]
