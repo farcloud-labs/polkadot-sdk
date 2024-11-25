@@ -8,7 +8,9 @@ RUN rustup  install nightly && \
 
 WORKDIR /substrate-node
 COPY . /substrate-node
-RUN cargo build --release -p staging-node-cli
+RUN apt update && apt install -y ca-certificates && \
+	cargo build --release -p staging-node-cli
+
 
 # This is the 2nd stage: a very small image where we copy the substrate-node binary."
 FROM docker.io/library/ubuntu:22.04
