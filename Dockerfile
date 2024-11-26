@@ -9,6 +9,7 @@ RUN rustup  install nightly && \
 WORKDIR /substrate-node
 COPY . /substrate-node
 RUN apt update && apt install -y ca-certificates && \
+	update-ca-certificates && \
 	cargo build --release -p staging-node-cli
 
 
@@ -34,7 +35,7 @@ RUN useradd -m -u 1000 -U -s /bin/sh -d /substrate-node substrate-node && \
 # Sanity checks
 	ldd /usr/local/bin/substrate-node && \
 # unclutter and minimize the attack surface
-	rm -rf /usr/bin /usr/sbin && \
+	# rm -rf /usr/bin /usr/sbin && \
 	/usr/local/bin/substrate-node --version
 
 USER substrate-node
