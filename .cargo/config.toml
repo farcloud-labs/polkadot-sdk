@@ -1,11 +1,25 @@
-[build]
-rustdocflags = [
-	"-Dwarnings",
-	"-Arustdoc::redundant_explicit_links", # stylistic
-]
+# [build]
+# rustdocflags = [
+# 	"-Dwarnings",
+# 	"-Arustdoc::redundant_explicit_links", # stylistic
+# ]
 
-[env]
-# Needed for musl builds so user doesn't have to install musl-tools.
-CC_x86_64_unknown_linux_musl = { value = ".cargo/musl-gcc", force = true, relative = true }
-CXX_x86_64_unknown_linux_musl = { value = ".cargo/musl-g++", force = true, relative = true }
-CARGO_WORKSPACE_ROOT_DIR = { value = "", relative = true }
+# [env]
+# # Needed for musl builds so user doesn't have to install musl-tools.
+# CC_x86_64_unknown_linux_musl = { value = ".cargo/musl-gcc", force = true, relative = true }
+# CXX_x86_64_unknown_linux_musl = { value = ".cargo/musl-g++", force = true, relative = true }
+# CARGO_WORKSPACE_ROOT_DIR = { value = "", relative = true }
+
+# .cargo/config.toml
+# [build]
+# target = "x86_64-unknown-linux-musl"
+
+# # 配置交叉编译的 C 编译器和 C++ 编译器
+# [target.x86_64-unknown-linux-musl]
+# linker = "x86_64-linux-musl-gcc"
+# ar = "x86_64-linux-musl-ar"
+# # # 如果你需要 C++ 编译，指定 C++ 编译器
+# cc = "x86_64-linux-musl-gcc"
+# cxx = "x86_64-linux-musl-g++"
+
+

@@ -8,9 +8,7 @@ RUN rustup  install nightly && \
 
 WORKDIR /substrate-node
 COPY . /substrate-node
-RUN apt update && apt install -y ca-certificates && \
-	update-ca-certificates && \
-	cargo build --release -p staging-node-cli
+RUN cargo build --release -p staging-node-cli
 
 
 # This is the 2nd stage: a very small image where we copy the substrate-node binary."
@@ -28,7 +26,9 @@ COPY --from=builder /substrate-node/target/release/substrate-node /usr/local/bin
 # COPY --from=builder /substrate-node/target/release/node-template /usr/local/bin
 # COPY --from=builder /substrate-node/target/release/chain-spec-builder /usr/local/bin
 
-RUN useradd -m -u 1000 -U -s /bin/sh -d /substrate-node substrate-node && \
+RUN apt update && apt install -y ca-certificates && \
+	update-ca-certificates && \
+	useradd -m -u 1000 -U -s /bin/sh -d /substrate-node substrate-node && \
 	mkdir -p /data /substrate-node/.local/share/substrate-node && \
 	chown -R substrate-node:substrate-node /data && \
 	ln -s /data /substrate-node/.local/share/substrate-node && \
